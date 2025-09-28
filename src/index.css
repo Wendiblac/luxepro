@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Premium Fashion E-commerce Design System */
+
+@layer base {
+  :root {
+    /* Luxury Color Palette */
+    --background: 43 25% 97%;
+    /* Ivory base */
+    --foreground: 210 6% 4%;
+    /* Deep black */
+
+    --card: 43 25% 97%;
+    --card-foreground: 210 6% 4%;
+
+    --popover: 43 25% 97%;
+    --popover-foreground: 210 6% 4%;
+
+    /* Bronze Primary */
+    --primary: 30 61% 50%;
+    /* Bronze #CD7F32 */
+    --primary-foreground: 43 25% 97%;
+    --primary-glow: 30 61% 60%;
+
+    /* Premium Black Secondary */
+    --secondary: 210 6% 4%;
+    /* Premium Black #0B0B0C */
+    --secondary-foreground: 43 25% 97%;
+
+    --muted: 43 15% 92%;
+    --muted-foreground: 210 6% 45%;
+
+    --accent: 30 61% 50%;
+    --accent-foreground: 43 25% 97%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 43 25% 97%;
+
+    --border: 43 15% 88%;
+    --input: 43 15% 90%;
+    --ring: 30 61% 50%;
+
+    --radius: 1rem;
+
+    /* Premium Gradients */
+    --gradient-luxury: linear-gradient(135deg, hsl(30 61% 50%), hsl(30 61% 60%));
+    --gradient-hero: linear-gradient(135deg, hsl(210 6% 4%), hsl(210 6% 12%));
+    --gradient-card: linear-gradient(145deg, hsl(43 25% 98%), hsl(43 20% 95%));
+
+    /* Premium Shadows */
+    --shadow-luxury: 0 20px 40px -10px hsl(30 61% 50% / 0.3);
+    --shadow-elegant: 0 10px 30px -5px hsl(210 6% 4% / 0.1);
+    --shadow-soft: 0 4px 20px -2px hsl(210 6% 4% / 0.05);
+
+    /* Animations */
+    --transition-luxury: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark Luxury Theme */
+    --background: 210 6% 4%;
+    /* Premium Black */
+    --foreground: 43 25% 97%;
+
+    --card: 210 6% 6%;
+    --card-foreground: 43 25% 97%;
+
+    --popover: 210 6% 6%;
+    --popover-foreground: 43 25% 97%;
+
+    /* Bronze stays consistent in dark mode */
+    --primary: 30 61% 50%;
+    /* Bronze */
+    --primary-foreground: 210 6% 4%;
+
+    --secondary: 210 6% 15%;
+    --secondary-foreground: 43 25% 97%;
+
+    --muted: 210 6% 12%;
+    --muted-foreground: 43 15% 70%;
+
+    --accent: 30 61% 50%;
+    --accent-foreground: 210 6% 4%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 43 25% 97%;
+
+    --border: 210 6% 15%;
+    --input: 210 6% 12%;
+    --ring: 30 61% 50%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-playfair;
+  }
+}
+
+@layer components {
+
+  /* Hero Section Animations */
+  .hero-text-animate {
+    @apply animate-fade-in;
+    animation-delay: 0.2s;
+    animation-fill-mode: both;
+  }
+
+  .hero-button-animate {
+    @apply animate-scale-in;
+    animation-delay: 0.6s;
+    animation-fill-mode: both;
+  }
+
+  /* Premium Card Styles */
+  .luxury-card {
+    @apply rounded-2xl border border-border bg-card shadow-[var(--shadow-elegant)] transition-[var(--transition-luxury)];
+  }
+
+  .luxury-card:hover {
+    @apply shadow-[var(--shadow-luxury)] translate-y-[-4px];
+  }
+
+  /* Product Card Hover Effect */
+  .product-card {
+    @apply luxury-card overflow-hidden;
+  }
+
+  .product-card:hover .product-image {
+    @apply scale-105;
+  }
+
+  /* Premium Button Styles */
+  .btn-luxury {
+    @apply bg-gradient-to-r from-primary to-primary-glow text-primary-foreground font-semibold px-8 py-4 rounded-2xl shadow-[var(--shadow-luxury)] transition-[var(--transition-luxury)] hover:shadow-[var(--shadow-elegant)] hover:translate-y-[-2px];
+  }
+
+  .btn-outline-luxury {
+    @apply border-2 border-primary text-primary bg-transparent font-semibold px-8 py-4 rounded-2xl transition-[var(--transition-luxury)] hover:bg-primary hover:text-primary-foreground hover:shadow-[var(--shadow-luxury)];
+  }
+
+  /* Editorial Typography */
+  .hero-headline {
+    @apply font-playfair text-5xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-tight;
+  }
+
+  .section-title {
+    @apply font-playfair text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight;
+  }
+
+  .body-elegant {
+    @apply font-inter text-lg leading-relaxed text-muted-foreground;
+  }
+}
+
+@layer utilities {
+
+  /* Animation Keyframes */
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+/* Animate hero image scroll horizontally */
+@keyframes scrollHorizontal {
+  0% {
+    object-position: left center;
+  }
+
+  50% {
+    object-position: right center;
+  }
+
+  100% {
+    object-position: left center;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-scroll {
+    object-fit: cover;
+    animation: scrollHorizontal 40s ease-in-out infinite;
+  }
+}
