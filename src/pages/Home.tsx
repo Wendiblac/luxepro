@@ -9,7 +9,7 @@ import womenImage from '@/assets/women-collection.jpg';
 import menImage from '@/assets/men-collection.jpg';
 
 export const Home: React.FC = () => {
-  const featuredProducts = products.slice(0, 4);
+  const featuredProducts = products.slice(4, 8);
   const newProducts = products.filter(p => p.isNew);
 
   return (
